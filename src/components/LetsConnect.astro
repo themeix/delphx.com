@@ -1,0 +1,69 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<section class:list={['bg-off-white border-t border-neutral-200', compact ? 'py-16 md:py-20' : 'py-20 md:py-28']}>
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+      <div class="lg:col-span-5">
+        <div class="font-mono text-xs uppercase tracking-widest text-purple mb-3">Connect</div>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-deep-purple leading-tight">
+          How we can help you?
+        </h2>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6">
+        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed">
+          DelphX Capital Markets (TSXV: DELX | OTCQB: DPXCF) is a publicly traded fintech-focused capital markets solutions company headquartered in New York and Toronto. We lead with structured finance innovation—offering disciplined, transparent, and effective tools across credit, capital raising, and crypto treasury.
+        </p>
+        <p class="text-base sm:text-lg font-medium text-deep-purple">
+          Let’s modernize your capital strategy—purposefully. Together.
+        </p>
+
+        <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-neutral-200">
+          <a
+            href="/contact"
+            class="group flex items-center justify-between py-4 border-b border-neutral-300 hover:border-purple transition-colors"
+          >
+            <span class="font-display text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
+              Let's Connect
+            </span>
+            <svg
+              class="w-5 h-5 text-deep-purple group-hover:text-purple group-hover:translate-x-1 transition-all"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+
+          <a
+            href="/resources"
+            class="group flex items-center justify-between py-4 border-b border-neutral-300 hover:border-purple transition-colors"
+          >
+            <span class="font-display text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
+              Featured Podcast
+            </span>
+            <svg
+              class="w-5 h-5 text-deep-purple group-hover:text-purple group-hover:translate-x-1 transition-all"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

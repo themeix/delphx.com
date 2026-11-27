@@ -1,0 +1,141 @@
+---
+const navItems = [
+  { num: '01.', label: 'Home', href: '/' },
+  { num: '02.', label: 'About', href: '/about' },
+  { num: '03.', label: 'Investors', href: '/investors' },
+  { num: '04.', label: 'Team', href: '/team' },
+  { num: '05.', label: 'Press Releases', href: '/press-releases' },
+  { num: '06.', label: 'Media Resources', href: '/resources' },
+  { num: '07.', label: 'Contact', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replace(/\/$/, '');
+---
+
+<header id="Nav" class="fixed top-0 inset-x-0 z-50 bg-off-white/95 backdrop-blur-md border-b border-neutral-200/80">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 h-[68px] flex items-center justify-between">
+    <a href="/" class="inline-flex items-center shrink-0 focus:outline-none" aria-label="DelphX Home">
+      <img
+        src="/images/6815dd83de9cfb24c5c23d0f_logo.svg"
+        alt="DelphX Capital Markets"
+        width="140"
+        height="34"
+        class="h-8 w-auto"
+      />
+    </a>
+
+    <!-- Desktop quick links + Menu trigger -->
+    <div class="flex items-center gap-6">
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-neutral-700" aria-label="Primary Navigation">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <a
+              href={item.href}
+              class:list={[
+                'transition-colors hover:text-purple py-1',
+                isActive ? 'text-deep-purple font-semibold underline decoration-purple decoration-2 underline-offset-8' : 'text-neutral-600'
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <button
+        type="button"
+        id="menu-toggle-btn"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="nav-drawer"
+        class="w-10 h-10 rounded-full border border-neutral-300 bg-white hover:border-deep-purple flex flex-col items-center justify-center gap-1.5 transition-colors cursor-pointer"
+      >
+        <span id="menu-line-top" class="block w-4 h-[1.5px] bg-deep-purple transition-transform duration-300"></span>
+        <span id="menu-line-bottom" class="block w-4 h-[1.5px] bg-deep-purple transition-transform duration-300"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Full-screen / slide-out numbered navigation overlay (matching delphx.com) -->
+  <div
+    id="nav-drawer"
+    class="fixed inset-0 top-[68px] z-40 bg-deep-purple text-white opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto"
+    aria-hidden="true"
+  >
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-12 md:py-16 flex flex-col justify-between min-h-[calc(100vh-68px)]">
+      <div class="grid grid-cols-1 gap-2 sm:gap-4">
+        {navItems.map((item) => {
+          const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+          return (
+            <a
+              href={item.href}
+              class="group flex items-baseline gap-4 sm:gap-8 py-3 sm:py-4 border-b border-white/10 hover:border-lavender/60 transition-colors"
+            >
+              <span class="font-mono text-sm sm:text-base text-lavender/80 group-hover:text-lavender transition-colors">
+                {item.num}
+              </span>
+              <span
+                class:list={[
+                  'font-display text-3xl sm:text-5xl md:text-6xl font-medium tracking-tight transition-transform duration-300 group-hover:translate-x-2',
+                  isActive ? 'text-lavender' : 'text-white'
+                ]}
+              >
+                {item.label}
+              </span>
+            </a>
+          );
+        })}
+      </div>
+
+      <div class="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-sm text-white/70 font-mono">
+        <div>Miami • New York • Toronto</div>
+        <div class="flex items-center gap-6">
+          <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy</a>
+          <a href="/terms-and-conditions" class="hover:text-white transition-colors">Terms</a>
+          <a href="https://www.linkedin.com/company/59469860/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var btn = document.getElementById('menu-toggle-btn');
+    var drawer = document.getElementById('nav-drawer');
+    var topLine = document.getElementById('menu-line-top');
+    var bottomLine = document.getElementById('menu-line-bottom');
+    if (!btn || !drawer || !topLine || !bottomLine) return;
+
+    var isOpen = false;
+    function setOpen(open) {
+      isOpen = open;
+      btn.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+      if (open) {
+        drawer.classList.remove('opacity-0', 'pointer-events-none');
+        drawer.classList.add('opacity-100', 'pointer-events-auto');
+        topLine.style.transform = 'translateY(3.75px) rotate(45deg)';
+        bottomLine.style.transform = 'translateY(-3.75px) rotate(-45deg)';
+        document.body.style.overflow = 'hidden';
+      } else {
+        drawer.classList.add('opacity-0', 'pointer-events-none');
+        drawer.classList.remove('opacity-100', 'pointer-events-auto');
+        topLine.style.transform = '';
+        bottomLine.style.transform = '';
+        document.body.style.overflow = '';
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(!isOpen);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) setOpen(false);
+    });
+  })();
+</script>

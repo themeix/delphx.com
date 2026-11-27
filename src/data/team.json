@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "patrick-wood",
+    "name": "Patrick Wood",
+    "role": "Chief Executive Officer",
+    "initials": "PW",
+    "image": "/images/68e299805199394c91aea7ab_2ad5029d-b58a-4a49-92d4-6504eb9e0440-1.jpg",
+    "bioHtml": "<div class=\"w-richtext\"><p>Patrick is a successful capital markets veteran with a career spanning over 25 years in Canada and the United States. Pat\u2019s career has included fixed income asset management, \u00a0structured product creation, and advisory roles at Canadian-owned broker-dealer Midland Walwyn, Vice President roles at both BMO Nesbitt Burns and CIBC World Markets, and Managing Director role at Loewen Ondaatje\u00a0McCutcheon. </p><p>More recently Pat founded Tormont Group, a US and Canada-based Advisory and\u00a0Merchant Bank. Since 2012 Tormont Group has provided capital and supported US and Canadian companies on IPOs, M&amp;A, institutional investor development, and successful\u00a0market penetration strategy. </p><p>Patrick is the President and CEO of DelphX Capital Markets\u00a0(DELX-TSXv). Through its proprietary tools and technology, DelphX is advancing its\u00a0revolutionary fixed-income solution through the global bond market segment</p><p>\u200d</p></div>"
+  },
+  {
+    "slug": "emily-richardson",
+    "name": "Emily Richardson",
+    "role": "Chief Financial Officer",
+    "initials": "ER",
+    "image": "/images/6adb67dfd88337429e5145d0_emily.webp",
+    "bioHtml": "<div class=\"w-richtext\"><p>Emily Richardson is Chief Financial Officer of DelphX Capital Markets Inc. She is a finance executive with more than 15 years of experience in public company finance, capital markets, and corporate governance. She is also Chief Financial Officer of Regenx Tech Corp. (CSE: RGX), a publicly traded clean-tech company. There she leads IFRS reporting, audits, treasury, and capital raising through debentures, promissory notes, and rights offerings.</p><p>Emily's career spans energy, environmental services, construction and infrastructure, and biotechnology and pharmaceuticals. She has worked in financial reporting, capital planning, carve-out transactions, internal controls, and finance system implementations. She also founded and ran her own public accounting practice, and she has taught accounting and taxation at NAIT and NorQuest College.</p><p>Emily holds a Bachelor of Commerce in Accounting from the University of Alberta. She is a Chartered Professional Accountant (CPA, CMA) with the Chartered Professional Accountants of Alberta.</p><p>\u200d</p></div>"
+  },
+  {
+    "slug": "gordon-jardin",
+    "name": "Gordon Jardin",
+    "role": "Chief Actuary and Risk Officer",
+    "initials": "GJ",
+    "image": "",
+    "bioHtml": "<div class=\"w-richtext\"><p>Gordon is a Fellow and past board member of the Society of Actuaries, a Fellow of the Canadian Institute of Actuaries, and a member of the American Academy of Actuaries. </p><p>He has been Chief Executive Officer and Chief Operating Officer of reinsurance companies (Generali USA, PartnerRe Life/Winterthur Re), Vice President and General Manager, Reinsurance for Sun Life Canada and, more recently, the Chief Executive Officer of a residential mortgage acquisition and servicing company, Franklin Credit Management Corporation. </p><p>Gordon\u2019s extensive experience in developing and operating complex analytical systems is key to the development of the DelphX platform.</p></div>"
+  },
+  {
+    "slug": "george-wentworth",
+    "name": "George Wentworth",
+    "role": "Operations Director",
+    "initials": "GW",
+    "image": "",
+    "bioHtml": "<div class=\"w-richtext\"><p>George has more than 20 years of experience in driving operational processes to align with company culture and growth strategies. His experience includes handling business operations for multiple companies, including start-ups as well as more established organizations.</p><p>George\u2019s non-traditional path to business operations has involved studying farm sciences in Brazil and earning a Fine Arts degree at the University of Massachusetts, as well as working in the food industry, in real estate, in commercial and residential construction, management consulting, and technology services. By the time he was 30, George had already worked in, founded, and sold a few startups.</p><p>He believes this path proves that some business fundamentals are true for companies of any size or industry. The best recipe for success requires maintaining a strong company culture, streamlining operational systems, and providing excellent communication and customer service. These are the fundamentals; everything else is negotiable. </p></div>"
+  },
+  {
+    "slug": "salim-hasham",
+    "name": "Salim Hasham",
+    "role": "Non-Executive Director",
+    "initials": "SH",
+    "image": "",
+    "bioHtml": "<div class=\"w-richtext\"><p>Salim Hasham is currently a Director and Global Head of Business Transformation Partnerships at Google. A key part of his role at Google is to help couple the thinking of the world's best strategy firms with Google's engineering talent to transform visionary concepts into finished products and applications.</p><p>Prior to Google, he had nearly 20 years of experience involved in a wide range of financial services projects, including nine years as a Partner at McKinsey &amp; Company and Pricewaterhouse Coopers. He is a leader in strategy, organizational design, operations and risk management, as well as a recognized authority on innovative disruption and accelerated growth. He has particular expertise in driving growth while managing cybersecurity/financial crime and crisis management. As a recognized industry expert, he is frequently asked to provide perspective to organizations such as the UN, OECD, and industry/regulatory bodies; keynotes to client executives; and white papers for governmental agencies. His published commentary can be read on the McKinsey Global Institute, McKinsey on Technology, McKinsey on Risk, and other industry/media outlets.</p></div>"
+  }
+]

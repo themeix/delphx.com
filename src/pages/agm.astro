@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LetsConnect from '../components/LetsConnect.astro';
+
+const docs = [
+  {
+    title: 'Circular',
+    href: '/docs/6b09ca5e50805a50d6a53820_Circular.pdf',
+  },
+  {
+    title: 'Form of Proxy',
+    href: '/docs/6b09ca47b2f30269d2657d68_Form-of-Proxy.pdf',
+  },
+];
+---
+
+<BaseLayout
+  title="2026 Annual General and Special Meeting | DelphX Capital Markets"
+  description="Meeting materials for the December 17, 2026 Annual General and Special Meeting of Shareholders of DelphX Capital Markets Inc."
+  canonicalPath="/agm"
+>
+  <section class="bg-off-white pt-16 sm:pt-24 pb-16 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
+        <span class="font-mono text-xs uppercase tracking-widest text-purple">Shareholder Meeting</span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-deep-purple tracking-tight max-w-4xl">
+        2026 Annual General and Special Meeting
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-off-white py-16 md:py-24">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 space-y-10">
+      <h2 class="font-display text-2xl sm:text-3xl font-medium text-deep-purple max-w-3xl">
+        Meeting materials for the December 17, 2026 Annual General and Special Meeting of Shareholders
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl">
+        {docs.map((doc) => (
+          <a
+            href={doc.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group rounded-2xl border border-neutral-200 bg-white p-7 flex items-center justify-between gap-4 hover:border-purple hover:shadow-sm transition-all"
+          >
+            <div class="space-y-1">
+              <div class="font-mono text-xs uppercase tracking-wider text-purple">PDF Document</div>
+              <div class="font-display text-xl font-semibold text-deep-purple group-hover:text-purple transition-colors">
+                {doc.title}
+              </div>
+            </div>
+            <svg class="w-5 h-5 text-neutral-400 group-hover:text-purple shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M12 5v14M5 12l7 7 7-7"></path>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LetsConnect />
+</BaseLayout>

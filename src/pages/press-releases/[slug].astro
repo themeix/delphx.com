@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LetsConnect from '../../components/LetsConnect.astro';
+import pressReleases from '../../data/pressReleases.json';
+
+export function getStaticPaths() {
+  return pressReleases.map((pr) => ({
+    params: { slug: pr.slug },
+    props: { pr },
+  }));
+}
+
+const { pr } = Astro.props;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: pr.title,
+  datePublished: pr.isoDate !== '1970-01-01' ? pr.isoDate : undefined,
+  author: {
+    '@type': 'Organization',
+    name: 'DelphX Capital Markets Inc.',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'DelphX Capital Markets Inc.',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://www.delphx.com/images/6815dd83de9cfb24c5c23d0f_logo.svg',
+    },
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://www.delphx.com/press-releases/${pr.slug}`,
+  },
+};
+---
+
+<BaseLayout
+  title={pr.metaTitle || pr.title}
+  description={pr.description || pr.title}
+  canonicalPath={`/press-releases/${pr.slug}`}
+  ogType="article"
+  schema={articleSchema}
+>
+  <article class="bg-off-white pt-16 sm:pt-24 pb-20">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="mb-8">
+        <a
+          href="/press-releases"
+          class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-purple hover:text-deep-purple transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>All Press Releases</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <aside class="lg:col-span-3 lg:sticky lg:top-24 space-y-3 border-b lg:border-b-0 pb-6 lg:pb-0 border-neutral-200">
+          {pr.date && (
+            <div class="font-mono text-sm text-deep-purple font-medium">{pr.date}</div>
+          )}
+          <div class="font-mono text-xs uppercase tracking-widest text-neutral-500">
+            TSXV: DELX • OTCQB: DPXCF
+          </div>
+        </aside>
+
+        <div class="lg:col-span-9 space-y-8">
+          <h1 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-deep-purple leading-tight">
+            {pr.title}
+          </h1>
+
+          <div class="rich-text pt-4 border-t border-neutral-200" set:html={pr.bodyHtml} />
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <LetsConnect />
+</BaseLayout>

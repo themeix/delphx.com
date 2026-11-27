@@ -1,0 +1,52 @@
+---
+const links = [
+  { label: 'Privacy', href: '/privacy-policy' },
+  { label: 'Terms', href: '/terms-and-conditions' },
+  { label: 'About', href: '/about' },
+  { label: 'Team', href: '/team' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<footer class="bg-deep-purple text-white py-10 md:py-12">
+  <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <!-- Left: Navigation links -->
+      <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80" aria-label="Footer Navigation">
+        {links.map((link) => (
+          <a href={link.href} class="hover:text-lavender transition-colors py-1">
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Center: White Logo + Locations -->
+      <div class="flex flex-col items-start md:items-center gap-2">
+        <a href="/" aria-label="DelphX Home">
+          <img
+            src="/images/6815dcd09dfd03f712ed5b07_logo-white.svg"
+            alt="DelphX Capital Markets"
+            width="130"
+            height="32"
+            loading="lazy"
+            class="h-7 w-auto"
+          />
+        </a>
+        <div class="font-mono text-xs text-white/70">Miami, NY, Toronto</div>
+      </div>
+
+      <!-- Right: LinkedIn + Copyright -->
+      <div class="flex flex-col items-start md:items-end gap-1.5 text-sm text-white/75">
+        <a
+          href="https://www.linkedin.com/company/59469860/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-lavender transition-colors"
+        >
+          Linkedin
+        </a>
+        <div class="text-xs text-white/60">©2026 DelphX Capital Markets Inc</div>
+      </div>
+    </div>
+  </div>
+</footer>

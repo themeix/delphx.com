@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@theme {
+  --color-off-white: #fcfcfc;
+  --color-pearl: #f0f4f7;
+  --color-deep-purple: #1a0f3a;
+  --color-purple: #7d3bf4;
+  --color-violet: #d7d9ff;
+  --color-lavender: #af9aff;
+  --color-neutral-200: #e4e4e4;
+  --color-neutral-300: #e0e0e0;
+  --color-neutral-400: #bfbfbf;
+  --color-neutral-500: #908f92;
+  --color-neutral-600: #444444;
+  --color-neutral-700: #29292b;
+  --color-neutral-800: #1e1e1f;
+
+  --font-display: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'PT Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    color: var(--color-neutral-800);
+    background-color: var(--color-off-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Smooth reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Rich text styling for press releases, bios, and legal pages */
+.rich-text {
+  color: var(--color-neutral-700);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+.rich-text p {
+  margin-bottom: 1.25rem;
+}
+
+.rich-text h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-deep-purple);
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+}
+
+.rich-text h3 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--color-deep-purple);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.rich-text h4, .rich-text h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-deep-purple);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.rich-text ul, .rich-text ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+
+.rich-text ul {
+  list-style-type: disc;
+}
+
+.rich-text ol {
+  list-style-type: decimal;
+}
+
+.rich-text li {
+  margin-bottom: 0.45rem;
+}
+
+.rich-text a {
+  color: var(--color-purple);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.rich-text a:hover {
+  color: var(--color-deep-purple);
+}
+
+.rich-text strong {
+  color: var(--color-neutral-800);
+  font-weight: 600;
+}
+
+.rich-text blockquote {
+  border-left: 3px solid var(--color-purple);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--color-neutral-600);
+  margin: 1.5rem 0;
+}
+
+.rich-text table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.rich-text th, .rich-text td {
+  border: 1px solid var(--color-neutral-300);
+  padding: 0.625rem 0.875rem;
+  text-align: left;
+}
+
+.rich-text th {
+  background-color: var(--color-pearl);
+  font-weight: 600;
+  color: var(--color-deep-purple);
+}

@@ -1,0 +1,320 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LetsConnect from '../components/LetsConnect.astro';
+
+const processSteps = [
+  {
+    num: '01',
+    title: 'Discovery & Structuring',
+    desc: 'We begin with a strategic review of your bond portfolio to assess downgrade exposure and define CRS structuring opportunities.',
+  },
+  {
+    num: '02',
+    title: 'Product Customization',
+    desc: 'We tailor Credit Rating Securities to match your credit risk profile, leveraging your reference bonds and our compliant framework.',
+  },
+  {
+    num: '03',
+    title: 'Execution & Custody',
+    desc: 'Securities are placed through Delphx Services Corp. and administered via US Bank, ensuring secure, transparent settlement.',
+  },
+  {
+    num: '04',
+    title: 'Settlement & Reporting',
+    desc: 'We provide post-transaction monitoring and visibility through Bloomberg systems, with ongoing performance tracking.',
+  },
+];
+
+const pillars = [
+  {
+    icon: '/images/68121fa3c12b45a8493f8817_square-stretch2.svg',
+    title: 'Eliminating counterparty risk',
+    desc: 'Provides a standardized facility to issue recognized and transparent securities fully collateralized by US Treasuries, eliminating counterparty risk.',
+  },
+  {
+    icon: '/images/68121fa3c12b45a8493f8816_dot-multi.svg',
+    title: 'Expanding access',
+    desc: 'Expanding access to those who do not participate in swaps and derivatives, while also giving existing participants who are seeking risk protection / speculation a cost-efficient alternative to CDS.',
+  },
+  {
+    icon: '/images/68121fa3c12b45a8493f8815_leaf-quad.svg',
+    title: 'Improved underlying risk profile',
+    desc: 'Provides an additional vehicle for yield enhancement with improved underlying risk profiles at lower costs of capitalization – without increasing derivatives exposure.',
+  },
+  {
+    icon: '/images/68121fa3c12b45a8493f8818_circle-con4.svg',
+    title: 'Conjunction with existing credit products',
+    desc: 'A novel and enhanced product that can be used in conjunction with existing credit products and strategies.',
+  },
+];
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialService',
+  name: 'DelphX Capital Markets Inc.',
+  url: 'https://www.delphx.com',
+  description:
+    'With the conventional system in crisis, the DelphX market gives institutional investors a new way to hedge credit default risk while achieving enhanced yields and lower cost of protection.',
+  areaServed: ['US', 'CA'],
+  tickerSymbol: 'TSXV: DELX | OTCQB: DPXCF',
+};
+---
+
+<BaseLayout
+  title="Delphx - Building a better credit market through risk-diffusion"
+  description="With the conventional system in crisis, the DelphX market gives institutional investors a new way to hedge credit default risk while achieving enhanced yields and lower cost of protection."
+  canonicalPath=""
+  schema={homeSchema}
+>
+  <!-- Hero Section -->
+  <section id="Hero" class="relative min-h-[calc(100svh-68px)] flex flex-col justify-between bg-deep-purple text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="/images/68121fa3c12b45a8493f885f_martin-martz-SIhcZYEwMB0-unsplash-1-.jpg"
+        alt="Architectural geometric structure representing capital protection"
+        fetchpriority="high"
+        class="w-full h-full object-cover opacity-50"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-deep-purple/75 via-deep-purple/60 to-deep-purple/95"></div>
+    </div>
+
+    <div class="relative z-10 max-w-[1440px] w-full mx-auto px-4 sm:px-8 lg:px-12 pt-16 sm:pt-24 pb-12 flex-grow flex flex-col justify-between">
+      <div class="max-w-5xl space-y-8">
+        <div class="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-lavender">
+          TSXV: DELX • OTCQB: DPXCF
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.03] text-white uppercase">
+          PROTECTED CAPITAL ATTRACTS CAPITAL
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-white/85 max-w-3xl leading-relaxed font-light">
+          Driving innovation in <strong class="font-semibold text-white">structured credit, private placements, and structured products for crypto currency.</strong> DCM is a <strong class="font-semibold text-white">publicly traded fintech leader</strong> redefining risk, transparency, and growth for global investors.
+        </p>
+
+        <div class="pt-2">
+          <a
+            href="/about"
+            class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white text-deep-purple font-medium text-sm sm:text-base hover:bg-lavender transition-colors shadow-lg"
+          >
+            <span>Discover DelphX</span>
+            <svg
+              class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-12 flex items-center justify-between border-t border-white/15 font-mono text-xs sm:text-sm text-white/70">
+        <span>2026</span>
+        <span>Miami, NY, Toronto</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction Section -->
+  <section class="bg-off-white py-20 md:py-28 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start reveal">
+        <div class="lg:col-span-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-purple">Introduction</span>
+        </div>
+        <div class="lg:col-span-8 space-y-8">
+          <p class="font-display text-2xl sm:text-3xl md:text-4xl font-medium text-deep-purple leading-snug">
+            DCM is building a new class of structured products. We are a publicly traded company which has created a fully collateralized hedged crypto currency structured products — offering institutions, corporates, and investors a safe, transparent path to participate in digital assets while preserving value.
+          </p>
+          <div>
+            <a
+              href="/about"
+              class="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-deep-purple text-pearl text-sm font-medium hover:bg-purple transition-colors"
+            >
+              <span>About Us</span>
+              <svg
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Section -->
+  <section class="bg-pearl py-20 md:py-28 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12 md:mb-16 reveal">
+        <div>
+          <span class="font-mono text-xs uppercase tracking-widest text-purple block mb-2">Solutions</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-deep-purple">
+            Core Services
+          </h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Service 1 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-deep-purple text-white min-h-[420px] flex flex-col justify-between p-8 sm:p-10 reveal">
+          <img
+            src="/images/682968e34650440bc700bfc4_marek-mucha-kqsOIvxuuuM-unsplash.webp"
+            alt="Structured Credit Solutions"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-deep-purple via-deep-purple/70 to-deep-purple/40"></div>
+
+          <div class="relative z-10 flex items-center justify-between">
+            <img
+              src="/images/68121fa3c12b45a8493f8819_triangle-quad2.svg"
+              alt=""
+              width="36"
+              height="36"
+              loading="lazy"
+              class="w-9 h-9"
+            />
+            <span class="font-mono text-xs uppercase tracking-widest text-lavender">01</span>
+          </div>
+
+          <div class="relative z-10 space-y-4 mt-16">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-white">
+              Structured Credit Solutions
+            </h3>
+            <p class="text-white/80 text-base leading-relaxed">
+              Credit Rating Securities (CRS) that optimize portfolio returns and allow bond investors to hedge credit rating migration risk.
+            </p>
+            <div class="pt-2">
+              <a
+                href="/about"
+                class="inline-flex items-center gap-2 text-sm font-medium text-lavender hover:text-white transition-colors"
+              >
+                <span>Learn More</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="group relative rounded-2xl overflow-hidden bg-deep-purple text-white min-h-[420px] flex flex-col justify-between p-8 sm:p-10 reveal">
+          <img
+            src="/images/686c901e2da9128237125720_shutterstock_390490534-p-1080.jpg"
+            alt="Private Placements"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover opacity-35 group-hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-deep-purple via-deep-purple/70 to-deep-purple/40"></div>
+
+          <div class="relative z-10 flex items-center justify-between">
+            <img
+              src="/images/68121fa3c12b45a8493f8817_square-stretch2.svg"
+              alt=""
+              width="36"
+              height="36"
+              loading="lazy"
+              class="w-9 h-9"
+            />
+            <span class="font-mono text-xs uppercase tracking-widest text-lavender">02</span>
+          </div>
+
+          <div class="relative z-10 space-y-4 mt-16">
+            <h3 class="font-display text-2xl sm:text-3xl font-semibold text-white">
+              Private Placements
+            </h3>
+            <p class="text-white/80 text-base leading-relaxed">
+              Private Placements services for corporate clients seeking debt, equity, and structured product solutions.
+            </p>
+            <div class="pt-2">
+              <a
+                href="/about"
+                class="inline-flex items-center gap-2 text-sm font-medium text-lavender hover:text-white transition-colors"
+              >
+                <span>Learn More</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Institutional Onboarding & CRS Delivery -->
+  <section class="bg-deep-purple text-white py-20 md:py-28">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 reveal">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="font-mono text-xs uppercase tracking-widest text-lavender">Our Process</span>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
+            Institutional Onboarding &amp; CRS Delivery
+          </h2>
+        </div>
+        <div class="lg:col-span-6 flex justify-start lg:justify-end">
+          <img
+            src="/images/68121fa3c12b45a8493f8808_SVG.svg"
+            alt="DelphX Institutional CRS Architecture"
+            loading="lazy"
+            class="w-full max-w-md h-auto opacity-90"
+          />
+        </div>
+      </div>
+
+      <!-- 4 Process Steps -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        {processSteps.map((step) => (
+          <div class="rounded-2xl border border-white/15 bg-white/5 p-7 space-y-4 hover:border-lavender/50 transition-colors reveal">
+            <div class="font-mono text-sm text-lavender">{step.num}</div>
+            <h3 class="font-display text-xl font-semibold text-white">{step.title}</h3>
+            <p class="text-sm text-white/75 leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- 4 Value Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {pillars.map((pillar) => (
+          <div class="rounded-2xl border border-white/15 bg-white/[0.04] p-8 flex flex-col sm:flex-row gap-6 items-start reveal">
+            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center shrink-0 p-2.5">
+              <img src={pillar.icon} alt="" width="32" height="32" loading="lazy" class="w-full h-full object-contain invert" />
+            </div>
+            <div class="space-y-2">
+              <h3 class="font-display text-xl font-semibold text-white">{pillar.title}</h3>
+              <p class="text-sm sm:text-base text-white/75 leading-relaxed">{pillar.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Accent Banner -->
+  <section class="relative h-64 sm:h-80 overflow-hidden bg-deep-purple">
+    <img
+      src="/images/68121fa3c12b45a8493f8832_milad-fakurian-HE1_K4_-QT8-unsplash.jpg"
+      alt="Abstract modern finance geometry"
+      loading="lazy"
+      class="w-full h-full object-cover opacity-70"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-off-white/20 to-deep-purple/60"></div>
+  </section>
+
+  <LetsConnect />
+</BaseLayout>

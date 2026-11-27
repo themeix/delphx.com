@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LetsConnect from '../components/LetsConnect.astro';
+import pressReleases from '../data/pressReleases.json';
+
+const years = Array.from(
+  new Set(pressReleases.map((pr) => pr.isoDate.slice(0, 4)).filter((y) => y !== '1970'))
+).sort((a, b) => Number(b) - Number(a));
+---
+
+<BaseLayout
+  title="Press Releases | DelphX Capital Markets"
+  description="Official press releases, corporate announcements, private placement updates, and Credit Rating Securities milestones from DelphX Capital Markets Inc."
+  canonicalPath="/press-releases"
+>
+  <section class="bg-off-white pt-16 sm:pt-24 pb-12 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
+        <span class="font-mono text-xs uppercase tracking-widest text-purple">Newsroom</span>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold text-deep-purple tracking-tight">
+          Press Releases
+        </h1>
+        <p class="font-mono text-xs sm:text-sm text-neutral-500">
+          Showing <span id="pr-count">{pressReleases.length}</span> announcements
+        </p>
+      </div>
+
+      <!-- Search and Year Filter -->
+      <div class="mt-8 flex flex-col sm:flex-row gap-4">
+        <input
+          type="search"
+          id="pr-search"
+          placeholder="Search press releases..."
+          aria-label="Search press releases"
+          class="w-full sm:max-w-md px-4 py-2.5 rounded-full border border-neutral-300 bg-white text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-purple"
+        />
+        <select
+          id="pr-year"
+          aria-label="Filter by year"
+          class="px-4 py-2.5 rounded-full border border-neutral-300 bg-white text-sm text-neutral-800 focus:outline-none focus:ring-2 focus:ring-purple"
+        >
+          <option value="all">All Years</option>
+          {years.map((y) => (
+            <option value={y}>{y}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-off-white py-12 md:py-16">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div id="pr-list" class="divide-y divide-neutral-200 border-t border-b border-neutral-200">
+        {pressReleases.map((pr) => (
+          <a
+            href={`/press-releases/${pr.slug}`}
+            data-title={pr.title.toLowerCase()}
+            data-year={pr.isoDate.slice(0, 4)}
+            class="pr-item group py-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-pearl/60 px-2 sm:px-4 -mx-2 sm:-mx-4 rounded-xl transition-colors"
+          >
+            <div class="space-y-1.5 md:max-w-4xl">
+              {pr.date && (
+                <div class="font-mono text-xs text-purple uppercase tracking-wider">{pr.date}</div>
+              )}
+              <h2 class="font-display text-lg sm:text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
+                {pr.title}
+              </h2>
+            </div>
+
+            <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-neutral-500 group-hover:text-purple shrink-0">
+              <span>Read Release</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LetsConnect />
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var searchInput = document.getElementById('pr-search');
+    var yearSelect = document.getElementById('pr-year');
+    var countEl = document.getElementById('pr-count');
+    var items = Array.prototype.slice.call(document.querySelectorAll('.pr-item'));
+    if (!searchInput || !yearSelect || !countEl) return;
+
+    function filter() {
+      var q = searchInput.value.trim().toLowerCase();
+      var yr = yearSelect.value;
+      var visible = 0;
+      items.forEach(function (el) {
+        var title = el.getAttribute('data-title') || '';
+        var itemYear = el.getAttribute('data-year') || '';
+        var matchQ = !q || title.indexOf(q) !== -1;
+        var matchY = yr === 'all' || itemYear === yr;
+        if (matchQ && matchY) {
+          el.classList.remove('hidden');
+          visible++;
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+      countEl.textContent = String(visible);
+    }
+
+    searchInput.addEventListener('input', filter);
+    yearSelect.addEventListener('change', filter);
+  })();
+</script>

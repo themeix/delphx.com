@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const offices = [
+  {
+    title: 'Head Office – Canada',
+    lines: ['15 Prince Arthur Avenue', 'Toronto, ON M5R 1B2'],
+  },
+  {
+    title: 'Head Office – USA',
+    lines: ['57 West 57th Street', 'New York, NY 10019'],
+  },
+  {
+    title: 'Delphx Services Corporation',
+    lines: ['265 Davidson Avenue', 'Suite 210 Somerset, NJ 08873'],
+  },
+];
+
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact DelphX Capital Markets',
+  url: 'https://www.delphx.com/contact',
+};
+---
+
+<BaseLayout
+  title="Contact | DelphX Capital Markets"
+  description="Contact DelphX Capital Markets Inc. for innovative credit risk solutions, Credit Rating Securities (CRS), and private capital access."
+  canonicalPath="/contact"
+  schema={contactSchema}
+>
+  <section class="bg-off-white pt-16 sm:pt-24 pb-20 md:pb-28">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Left column: Heading + Form -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
+              <span class="font-mono text-xs uppercase tracking-widest text-purple">Get in Touch</span>
+            </div>
+            <h1 class="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-deep-purple tracking-tight">
+              How we can help you?
+            </h1>
+            <p class="text-lg text-neutral-600 leading-relaxed">
+              Innovative Credit Risk Solutions and Private Capital Access
+            </p>
+          </div>
+
+          <form id="contact-form" class="space-y-5 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-10 shadow-sm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="First-Name" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
+                  First Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="First-Name"
+                  name="First-Name"
+                  type="text"
+                  maxlength="256"
+                  required
+                  placeholder="First Name"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-off-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple text-sm text-neutral-800 transition-all"
+                />
+              </div>
+
+              <div>
+                <label for="Last-Name" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
+                  Last Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="Last-Name"
+                  name="Last-Name"
+                  type="text"
+                  maxlength="256"
+                  required
+                  placeholder="Last Name"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-off-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple text-sm text-neutral-800 transition-all"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="Phone" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
+                  Phone
+                </label>
+                <input
+                  id="Phone"
+                  name="Phone"
+                  type="tel"
+                  maxlength="256"
+                  placeholder="Your Phone"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-off-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple text-sm text-neutral-800 transition-all"
+                />
+              </div>
+
+              <div>
+                <label for="Email" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
+                  Email <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="Email"
+                  name="Email"
+                  type="email"
+                  maxlength="256"
+                  required
+                  placeholder="Your Email"
+                  class="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-off-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple text-sm text-neutral-800 transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="Message" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
+                Message <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="Message"
+                name="Your-Message"
+                rows="5"
+                maxlength="5000"
+                required
+                placeholder="Your Message"
+                class="w-full px-4 py-3 rounded-xl border border-neutral-300 bg-off-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-purple text-sm text-neutral-800 transition-all resize-y"
+              ></textarea>
+            </div>
+
+            <div>
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-deep-purple text-white text-sm font-medium hover:bg-purple transition-colors cursor-pointer disabled:opacity-60"
+              >
+                <span id="btn-text">Submit</span>
+                <svg id="btn-arrow" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <div
+              id="form-success"
+              class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm"
+              role="status"
+            >
+              Thank you! Your submission has been received!
+            </div>
+
+            <div
+              id="form-error"
+              class="hidden p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-sm"
+              role="alert"
+            >
+              Oops! Something went wrong while submitting the form. Please try again or email info@delphx.com directly.
+            </div>
+          </form>
+        </div>
+
+        <!-- Right column: Offices & Socials -->
+        <div class="lg:col-span-5 space-y-6 lg:pt-16">
+          {offices.map((office) => (
+            <div class="rounded-2xl border border-neutral-200 bg-white p-7 space-y-2">
+              <h2 class="font-display text-lg font-semibold text-deep-purple">{office.title}</h2>
+              {office.lines.map((line) => (
+                <p class="text-neutral-600 text-sm sm:text-base">{line}</p>
+              ))}
+            </div>
+          ))}
+
+          <div class="rounded-2xl border border-neutral-200 bg-deep-purple text-white p-7 space-y-4">
+            <h2 class="font-display text-lg font-semibold text-white">Socials</h2>
+            <div class="flex flex-wrap items-center gap-4 text-sm">
+              <a
+                href="https://www.linkedin.com/company/59469860/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-purple text-white transition-colors"
+              >
+                <span>LinkedIn</span>
+              </a>
+              <a
+                href="mailto:info@delphx.com"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-purple text-white transition-colors"
+              >
+                <span>info@delphx.com</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('contact-form');
+    var submitBtn = document.getElementById('submit-btn');
+    var btnText = document.getElementById('btn-text');
+    var successBox = document.getElementById('form-success');
+    var errorBox = document.getElementById('form-error');
+    if (!form || !submitBtn || !btnText || !successBox || !errorBox) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      successBox.classList.add('hidden');
+      errorBox.classList.add('hidden');
+
+      var firstName = (document.getElementById('First-Name') || {}).value || '';
+      var lastName = (document.getElementById('Last-Name') || {}).value || '';
+      var phone = (document.getElementById('Phone') || {}).value || '';
+      var email = (document.getElementById('Email') || {}).value || '';
+      var message = (document.getElementById('Message') || {}).value || '';
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'Please wait...';
+
+      try {
+        var res = await fetch('/contact.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: firstName.trim(),
+            lastName: lastName.trim(),
+            name: (firstName + ' ' + lastName).trim(),
+            phone: phone.trim(),
+            email: email.trim(),
+            subject: 'DelphX Website Inquiry',
+            message: message.trim(),
+          }),
+        });
+
+        var data = await res.json().catch(function () {
+          return {};
+        });
+
+        if (res.ok && data.success !== false) {
+          successBox.classList.remove('hidden');
+          form.reset();
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          errorBox.textContent = data.message || 'Oops! Something went wrong while submitting the form.';
+          errorBox.classList.remove('hidden');
+        }
+      } catch (err) {
+        errorBox.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        btnText.textContent = 'Submit';
+      }
+    });
+  })();
+</script>

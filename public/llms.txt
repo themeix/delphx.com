@@ -1,0 +1,27 @@
+# DelphX Capital Markets Inc.
+
+> DelphX Capital Markets Inc. (TSXV: DELX | OTCQB: DPXCF) is a publicly traded fintech-focused capital markets solutions company headquartered in New York and Toronto. We build structured credit solutions (Credit Rating Securities - CRS), private placement advisory services, and fully collateralized hedged cryptocurrency structured products (QCS).
+
+## Core Pages
+
+- [Home](https://www.delphx.com): Overview of DelphX's structured credit, private placements, and institutional onboarding process.
+- [About](https://www.delphx.com/about): Three dimensions (Structured Credit, Private Placement Advisory, QCS), Keys to the Story, and market metrics.
+- [Investors](https://www.delphx.com/investors): Investor communications, white paper, presentation, and investment thesis.
+- [Team](https://www.delphx.com/team): Leadership and board of directors.
+- [Press Releases](https://www.delphx.com/press-releases): Official corporate announcements and news releases.
+- [Media Resources](https://www.delphx.com/resources): Podcasts and video interviews featuring CEO Patrick Wood.
+- [Contact](https://www.delphx.com/contact): Contact form and office locations in Toronto, New York, and Somerset, NJ.
+
+## Investor & Governance Resources
+
+- [2026 AGM](https://www.delphx.com/agm): Meeting materials for the December 17, 2026 Annual General and Special Meeting.
+- [AGM Materials](https://www.delphx.com/agm-materials): 2024 AGM Form of Proxy and Information Circular.
+- [Company Financials](https://www.delphx.com/company-financials): Quarterly and annual Financial Statements and MD&A (2018–2025).
+- [Acronym and Term Playbook](https://www.delphx.com/delphx-acronym-and-term-playbook): Definitions for CPO, CRN, CDS, CUSIP, ISDA, Recovery Value, 144A, and SEC.
+- [Blog](https://www.delphx.com/blog): Media & Insights.
+
+## Legal & Full Context
+
+- [Privacy Policy](https://www.delphx.com/privacy-policy)
+- [Terms and Conditions](https://www.delphx.com/terms-and-conditions)
+- [Full LLM Documentation](https://www.delphx.com/llms-full.txt): Complete text of pages, team bios, and press releases.

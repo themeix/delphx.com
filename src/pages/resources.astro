@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LetsConnect from '../components/LetsConnect.astro';
+
+const appearances = [
+  {
+    icon: '/images/68e509c59ed3807586443789_apple-podcasts.svg',
+    title: 'Why the smart money takes a contrarian view on Crypto Risk',
+    cta: 'Listen Now',
+    href: 'https://thebitcoinnomadfamily.transistor.fm/s2/52',
+  },
+  {
+    icon: '/images/68e509c59ed3807586443789_apple-podcasts.svg',
+    title: 'The Crypto Rundown 292: How to Hedge the Bitcoin Treasury Explosion',
+    cta: 'Listen Now',
+    href: 'https://podcasts.apple.com/us/podcast/the-crypto-rundown-292-how-to-hedge-the-bitcoin/id1449083487?i=1000730518549',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'How Institutions Are Quietly Using Crypto Treasuries to Hedge Big Risks',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=yWx-ziqW1nk',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Mitigating Corporate Bond Downgrade Risk',
+    cta: 'Watch now',
+    href: 'https://www.youtube.com/watch?v=RIRR220tIsk',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Revolutionizing Credit Risk: New Solutions for Insurers',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=upEPJbXlsa8',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Empowering Risk Management in Credit Markets (IPO-VID #155)',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=7K137LWsh_U',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Credit Rating Securities: Empowering Risk Management in Credit Markets',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=eFEoiD5vCrE',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Episode 241: Discussion on Credit Rating Security (CRS)',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=427f2F3AmWo',
+  },
+  {
+    icon: '/images/686bff4172628418c7bdc9af_youtube-color-svgrepo-com.svg',
+    title: 'Delphx Capital Markets Presentation on CRS',
+    cta: 'Watch Now',
+    href: 'https://youtu.be/eg5gCxZrAuE',
+  },
+  {
+    icon: '/images/686bfc0277c98efd3bd2e91d_youtube-color-svgrepo-com.svg',
+    title: 'Delphx CEO Pat Wood: Launching New Credit and Risk Products',
+    cta: 'Watch Now',
+    href: 'https://www.youtube.com/watch?v=XfStHHY9W8g',
+  },
+];
+---
+
+<BaseLayout
+  title="Media Resources | DelphX Capital Markets"
+  description="Podcasts, video interviews, and media appearances featuring DelphX Capital Markets CEO Patrick Wood on Credit Rating Securities and crypto treasury hedging."
+  canonicalPath="/resources"
+>
+  <section class="bg-off-white pt-16 sm:pt-24 pb-16 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
+        <span class="font-mono text-xs uppercase tracking-widest text-purple">Media &amp; Podcasts</span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold text-deep-purple tracking-tight">
+        Media Resources
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-off-white py-16 md:py-24">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <h2 class="font-display text-2xl sm:text-3xl font-semibold text-deep-purple mb-10">
+        Patrick Wood – Podcast &amp; Media Appearances
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {appearances.map((item) => (
+          <a
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group rounded-2xl border border-neutral-200 bg-white p-7 flex items-start gap-5 hover:border-purple hover:shadow-sm transition-all"
+          >
+            <img src={item.icon} alt="" width="40" height="40" loading="lazy" class="w-10 h-10 shrink-0 mt-1" />
+            <div class="space-y-3">
+              <h3 class="font-display text-lg sm:text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
+                {item.title}
+              </h3>
+              <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple">
+                <span>{item.cta}</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <LetsConnect />
+</BaseLayout>

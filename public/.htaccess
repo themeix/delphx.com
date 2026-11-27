@@ -1,0 +1,45 @@
+# Serve index.html for directory requests
+DirectoryIndex index.html
+
+# Use Astro's generated 404 page
+ErrorDocument 404 /404.html
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect .html requests to clean extensionless URLs
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,NE,L]
+
+# Serve extensionless URLs from .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Long-term caching for hashed assets and static media (LiteSpeed / Apache)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 month"
+</IfModule>
+
+# Never cache HTML or XML/TXT feeds so deploys show up immediately
+<FilesMatch "\.(html|xml|txt)$">
+  <IfModule mod_expires.c>
+    ExpiresDefault "access plus 0 seconds"
+  </IfModule>
+</FilesMatch>
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/xml image/svg+xml application/json
+</IfModule>

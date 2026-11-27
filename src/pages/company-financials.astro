@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LetsConnect from '../components/LetsConnect.astro';
+
+const yearlyGroups = [
+  {
+    year: 'Financial Statements and MD&A (2025)',
+    periods: [
+      {
+        label: 'Q1 2025',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=5681f20b7712b5fe727f2517fd263d76dcd6cc98915496ac1d28201840792c3c' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=507dec0dbca851b86ad426d6cabfaae4a59842bfda55ab34f91e29125b45c38b' },
+        ],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2024)',
+    periods: [
+      {
+        label: 'Q1 2024',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=6748a70dfb56c585f15b86178c032d90ef926f6cfb2492d318a0be7c0420aab1' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=f5d772258fb6456092060aae5d11d3b42939dc023f8735c53a2adb54fe1a0556' },
+        ],
+      },
+      {
+        label: 'Q2 2024',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=6662ab83045912fb665b77333982bd99e2dc91a6d2cf8c3bece831cc50e1c2b7' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=9bcd29659c5588d16f0f4c865675322b8bf4534880902fb477621cbc07131cf3' },
+        ],
+      },
+      {
+        label: 'Q3 2024',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=9c607f17e3532da85629ad01dbeb1405e50e63687bf6072b0655fad6d3c28ac3' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a217b08512b8c616fca0f2fa8b329d3eb06e55df899080f1ba58d914a65dbb4b' },
+        ],
+      },
+      {
+        label: '2024 Annual',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=648823e69a57662366a5841ae0ff04a1564c99dcb8812cbcc327dbeb15c7055d' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a5797510a3fada3c31e465f19717f779fdc61c197ec3527b1c00fd61dac4547d' },
+        ],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2023)',
+    periods: [
+      {
+        label: 'Q1 2023',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=184a5da566f98b5f0d31988895ad5eea510aae734eb271e05483cf9b4de5507d' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a5aa41e54b719185d82d2545d0a8e7ef124cff4354c89acecb57d627c8d5a5b6' },
+        ],
+      },
+      {
+        label: 'Q2 2023',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=603befac49260a6f425e685d6403acdecf52d6fbc8742606aa4188545828bb83' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a1f1d3797410c5cedb9a018be0113ee040a73b1f886c4272049ebd74ebc99ced' },
+        ],
+      },
+      {
+        label: 'Q3 2023',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=7e1cc59b7fbe60cea9f59385e0187601b7537c63f0a0690b50c32c0d539c2ab4' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a5aa41e54b719185d82d2545d0a8e7ef124cff4354c89acecb57d627c8d5a5b6' },
+        ],
+      },
+      {
+        label: '2023 Annual',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=6848e1367ac2b16a38764e8ca53c1ca5d80ac506dc664e90d5cbc39f368e877f' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=07cc2fae66b4af1483e6a56d790d7d7315f9f8484a616e4b2016cbd7c77e4662' },
+        ],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2022)',
+    periods: [
+      {
+        label: 'Q1 2022',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=a081dda4fedb639017ff76a1b850d9123935b8f341f8b465519e26' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=32dfebf02d7740f59dd2b247ad81410190bfc7c02f87ff65053435b4e01971fd' },
+        ],
+      },
+      {
+        label: 'Q2 2022',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=232b42db7d43cfa93f1ef2c647c47f142408190c9313ee54faa8474f0e38efbd' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=d0294771dfb0b27658115508055fc73d795054fdc7d9779b2a7791b8f14861a7' },
+        ],
+      },
+      {
+        label: 'Q3 2022',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=9f8273e50d7e1b622755fd753dd1a9ea394c1766a3399100c4b8d332af81151e' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=d31ef261fd407ed5c6d9ec6bfd5274321820130c1891b7ce323a27cdf4564782' },
+        ],
+      },
+      {
+        label: '2022 Annual',
+        links: [
+          { title: 'Financial Statements', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=3c1129ac3ffbf61254031dffb8e7d28d3f1723f2f78f399028c6336d0ba5cae2' },
+          { title: 'Interim MD&A', href: 'https://www.sedarplus.ca/csa-party/records/document.html?id=97c9ba55e6e473ff19191ce70109fe4a637ae4d68b7c17b9ef5b439ca3d3a3eb' },
+        ],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2021)',
+    periods: [
+      {
+        label: 'Financial Statements & MD&A – 2021',
+        links: [{ title: 'View Document', href: '/docs/686bddcb716d4165d63ff8ff_delphx-2021.pdf' }],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2020)',
+    periods: [
+      {
+        label: 'Financial Statements & MD&A – 2020',
+        links: [{ title: 'View Document', href: '/docs/686bdbb47339dde89339f641_FS-MDA-2020.pdf' }],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2019)',
+    periods: [
+      {
+        label: 'Financial Statements & MD&A – 2019',
+        links: [{ title: 'View Document', href: '/docs/686bdb970fb261b3b01ff126_FS-MDA-2019.pdf' }],
+      },
+    ],
+  },
+  {
+    year: 'Financial Statements and MD&A (2018)',
+    periods: [
+      {
+        label: 'Financial Statements & MD&A – 2018',
+        links: [{ title: 'View Document', href: '/docs/686bdb8dfa5b34a7cb0fb42b_FS-MDA-2018.pdf' }],
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Company Financials | DelphX Capital Markets"
+  description="Quarterly and annual financial statements and Management's Discussion and Analysis (MD&A) for DelphX Capital Markets Inc. from 2018 to 2025."
+  canonicalPath="/company-financials"
+>
+  <section class="bg-off-white pt-16 sm:pt-24 pb-16 border-b border-neutral-200">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+      <div class="flex items-center gap-3 mb-6">
+        <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
+        <span class="font-mono text-xs uppercase tracking-widest text-purple">Filings &amp; Reports</span>
+      </div>
+      <h1 class="font-display text-4xl sm:text-6xl font-bold text-deep-purple tracking-tight">
+        Company Financials
+      </h1>
+    </div>
+  </section>
+
+  <section class="bg-off-white py-16 md:py-24">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 space-y-12">
+      {yearlyGroups.map((group) => (
+        <div class="space-y-6">
+          <h2 class="font-display text-2xl sm:text-3xl font-semibold text-deep-purple border-b border-neutral-200 pb-3">
+            {group.year}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {group.periods.map((period) => (
+              <div class="rounded-2xl border border-neutral-200 bg-white p-6 space-y-4">
+                <h3 class="font-display text-lg font-semibold text-deep-purple">{period.label}</h3>
+                <div class="flex flex-col gap-2.5">
+                  {period.links.map((l) => (
+                    <a
+                      href={l.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center justify-between text-sm font-medium text-purple hover:text-deep-purple transition-colors py-1 border-b border-neutral-100"
+                    >
+                      <span>{l.title}</span>
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <LetsConnect />
+</BaseLayout>

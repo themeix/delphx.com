@@ -1,0 +1,170 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalPath?: string;
+  ogType?: 'website' | 'article';
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title = 'Delphx - Building a better credit market through risk-diffusion',
+  description = 'With the conventional system in crisis, the DelphX market gives institutional investors a new way to hedge credit default risk while achieving enhanced yields and lower cost of protection.',
+  image = '/images/686c0a430e6d05bf7a9aa228_unnamed-1-.png',
+  canonicalPath = Astro.url.pathname === '/' ? '' : Astro.url.pathname.replace(/\/$/, ''),
+  ogType = 'website',
+  schema,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://www.delphx.com';
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
+const ogImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'DelphX Capital Markets Inc.',
+  alternateName: 'DelphX',
+  url: siteUrl,
+  logo: `${siteUrl}/images/6815dd83de9cfb24c5c23d0f_logo.svg`,
+  sameAs: ['https://www.linkedin.com/company/59469860/'],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'info@delphx.com',
+    contactType: 'investor relations',
+  },
+  address: [
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '15 Prince Arthur Avenue',
+      addressLocality: 'Toronto',
+      addressRegion: 'ON',
+      postalCode: 'M5R 1B2',
+      addressCountry: 'CA',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: '57 West 57th Street',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10019',
+      addressCountry: 'US',
+    },
+  ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'DelphX Capital Markets Inc.',
+  url: siteUrl,
+};
+
+const schemas = [
+  organizationSchema,
+  websiteSchema,
+  ...(Array.isArray(schema) ? schema : schema ? [schema] : []),
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="UMIRGcbg0fo9Z01nv5ODpQMDwkXZbkYZ69olMmzEhu0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="DelphX Capital Markets Inc." />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" type="image/png" href="/images/6828c9f5d3a0dcb9ecf007aa_favicon-1-.png" />
+    <link rel="apple-touch-icon" href="/images/6828ca2bbaf4081875353d93_favicon-2-.png" />
+
+    <!-- Fonts: Archivo, Geist, PT Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Geist:wght@300;400;500;600;700&family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    {schemas.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+
+    <!-- Google Analytics (deferred for optimal Core Web Vitals) -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-3RG9K5MVM0');
+      window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-3RG9K5MVM0';
+        document.head.appendChild(s);
+      });
+    </script>
+  </head>
+  <body class="bg-off-white text-neutral-800 antialiased flex flex-col min-h-screen selection:bg-violet selection:text-deep-purple">
+    <Navbar />
+
+    <main class="flex-grow pt-[68px]">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        var reveals = document.querySelectorAll('.reveal');
+        if (!('IntersectionObserver' in window)) {
+          reveals.forEach(function (el) {
+            el.classList.add('active');
+          });
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.08 }
+        );
+        reveals.forEach(function (el) {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>
