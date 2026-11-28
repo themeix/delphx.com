@@ -6,62 +6,91 @@ interface Props {
 const { compact = false } = Astro.props;
 ---
 
-<section class:list={['bg-off-white border-t border-neutral-200', compact ? 'py-16 md:py-20' : 'py-20 md:py-28']}>
+<section class:list={['bg-off-white border-t border-neutral-200/80', compact ? 'py-14 md:py-16' : 'py-16 md:py-24']}>
   <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 reveal">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-      <div class="lg:col-span-5">
-        <div class="font-mono text-xs uppercase tracking-widest text-purple mb-3">Connect</div>
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-deep-purple leading-tight">
-          How we can help you?
-        </h2>
-      </div>
+    <div class="relative overflow-hidden rounded-3xl border border-neutral-200/90 bg-gradient-to-br from-pearl via-white to-violet/25 p-8 sm:p-12 lg:p-16 shadow-sm">
+      <!-- Subtle ambient glow -->
+      <div class="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-purple/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-lavender/15 blur-3xl"></div>
 
-      <div class="lg:col-span-7 space-y-6">
-        <p class="text-base sm:text-lg text-neutral-600 leading-relaxed">
-          DelphX Capital Markets (TSXV: DELX | OTCQB: DPXCF) is a publicly traded fintech-focused capital markets solutions company headquartered in New York and Toronto. We lead with structured finance innovation—offering disciplined, transparent, and effective tools across credit, capital raising, and crypto treasury.
-        </p>
-        <p class="text-base sm:text-lg font-medium text-deep-purple">
-          Let’s modernize your capital strategy—purposefully. Together.
-        </p>
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <!-- Left Column: Eyebrow, Heading & Tagline -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple/20 bg-white/80 font-sans font-medium text-[11px] uppercase tracking-widest text-purple">
+            <span class="w-1.5 h-1.5 rounded-full bg-purple"></span>
+            <span>Connect</span>
+          </div>
 
-        <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-neutral-200">
-          <a
-            href="/contact"
-            class="group flex items-center justify-between py-4 border-b border-neutral-300 hover:border-purple transition-colors"
-          >
-            <span class="font-display text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
-              Let's Connect
-            </span>
-            <svg
-              class="w-5 h-5 text-deep-purple group-hover:text-purple group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-deep-purple leading-[1.08] tracking-tight">
+            How we can help you?
+          </h2>
+
+          <p class="text-base sm:text-lg font-medium text-deep-purple/90 leading-relaxed">
+            Let’s modernize your capital strategy—purposefully. Together.
+          </p>
+
+          <div class="pt-2 font-sans font-medium text-xs text-neutral-500 uppercase tracking-wider">
+            TSXV: DELX • OTCQB: DPXCF
+          </div>
+        </div>
+
+        <!-- Right Column: Description + Interactive Action Cards -->
+        <div class="lg:col-span-7 space-y-8">
+          <p class="text-base sm:text-lg text-neutral-600 leading-relaxed">
+            DelphX Capital Markets (TSXV: DELX | OTCQB: DPXCF) is a publicly traded fintech-focused capital markets solutions company headquartered in New York and Toronto. We lead with structured finance innovation—offering disciplined, transparent, and effective tools across credit, capital raising, and crypto treasury.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Primary Action Card: Let's Connect -->
+            <a
+              href="/contact"
+              class="group rounded-2xl bg-deep-purple text-white p-6 sm:p-7 flex items-center justify-between gap-4 hover:bg-purple transition-colors duration-300 shadow-sm"
             >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
+              <div class="space-y-1.5">
+                <div class="font-sans font-medium text-[11px] uppercase tracking-widest text-lavender">01 / Inquire</div>
+                <div class="font-display text-xl sm:text-2xl font-semibold text-white">
+                  Let's Connect
+                </div>
+              </div>
+              <div class="w-11 h-11 rounded-full bg-white/15 flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-white/25">
+                <svg
+                  class="w-5 h-5 text-white transition-transform duration-300 group-hover:translate-x-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
 
-          <a
-            href="/resources"
-            class="group flex items-center justify-between py-4 border-b border-neutral-300 hover:border-purple transition-colors"
-          >
-            <span class="font-display text-xl font-medium text-deep-purple group-hover:text-purple transition-colors">
-              Featured Podcast
-            </span>
-            <svg
-              class="w-5 h-5 text-deep-purple group-hover:text-purple group-hover:translate-x-1 transition-all"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+            <!-- Secondary Action Card: Featured Podcast -->
+            <a
+              href="/resources"
+              class="group rounded-2xl border border-neutral-200 bg-white text-deep-purple p-6 sm:p-7 flex items-center justify-between gap-4 hover:border-purple transition-colors duration-300 shadow-sm"
             >
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
-          </a>
+              <div class="space-y-1.5">
+                <div class="font-sans font-medium text-[11px] uppercase tracking-widest text-purple">02 / Media</div>
+                <div class="font-display text-xl sm:text-2xl font-semibold text-deep-purple group-hover:text-purple transition-colors duration-300">
+                  Featured Podcast
+                </div>
+              </div>
+              <div class="w-11 h-11 rounded-full bg-pearl text-deep-purple flex items-center justify-center shrink-0 transition-colors duration-300 group-hover:bg-purple group-hover:text-white">
+                <svg
+                  class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>

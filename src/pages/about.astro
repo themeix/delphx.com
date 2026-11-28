@@ -58,7 +58,7 @@ const metrics = [
     <div data-page-header class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="flex items-center gap-3 mb-6">
         <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
-        <span class="font-mono text-xs uppercase tracking-widest text-purple">About Us</span>
+        <span class="font-sans font-medium text-xs uppercase tracking-widest text-purple">About Us</span>
       </div>
       <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold text-deep-purple tracking-tight max-w-4xl">
         Delphx Capital Markets
@@ -83,7 +83,7 @@ const metrics = [
 
     <div class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="max-w-3xl mb-14 reveal">
-        <span class="font-mono text-xs uppercase tracking-widest text-lavender block mb-3">Our Capabilities</span>
+        <span class="font-sans font-medium text-xs uppercase tracking-widest text-lavender block mb-3">Our Capabilities</span>
         <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
           At DelphX Capital Markets, we deliver innovative solutions across three dimensions
         </h2>
@@ -96,7 +96,7 @@ const metrics = [
               <div class="w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center p-2.5">
                 <img src={item.icon} alt="" width="32" height="32" loading="lazy" class="w-full h-full object-contain invert brightness-200" />
               </div>
-              <span class="font-mono text-xs text-lavender/80">0{idx + 1}</span>
+              <span class="font-sans font-medium text-xs text-lavender/80">0{idx + 1}</span>
             </div>
             <h3 class="font-display text-xl font-semibold text-white">{item.title}</h3>
             <p class="text-white/80 text-sm sm:text-base leading-relaxed">{item.desc}</p>
@@ -111,7 +111,7 @@ const metrics = [
     <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div class="lg:col-span-4 reveal">
-          <span class="font-mono text-xs uppercase tracking-widest text-purple block mb-3">Our Thesis</span>
+          <span class="font-sans font-medium text-xs uppercase tracking-widest text-purple block mb-3">Our Thesis</span>
           <h2 class="font-display text-3xl sm:text-4xl font-semibold text-deep-purple">
             Keys to the Story
           </h2>
@@ -120,7 +120,7 @@ const metrics = [
         <div data-gsap-stagger class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {storyKeys.map((text, idx) => (
             <div class="rounded-2xl bg-white border border-neutral-200 p-7 space-y-3 hover:border-purple/50 transition-colors duration-300">
-              <div class="font-mono text-xs text-purple">0{idx + 1}</div>
+              <div class="font-sans font-medium text-xs text-purple">0{idx + 1}</div>
               <p class="text-neutral-700 text-sm sm:text-base leading-relaxed">{text}</p>
             </div>
           ))}
@@ -137,7 +137,7 @@ const metrics = [
           <div class="rounded-2xl border border-white/15 bg-white/[0.05] p-8 flex flex-col justify-between gap-8 hover:border-lavender/45 transition-colors duration-300">
             <div>
               <div class="font-display text-3xl sm:text-4xl font-bold text-white">{m.value}</div>
-              <div class="mt-2 font-mono text-xs text-lavender uppercase tracking-wider">{m.label}</div>
+              <div class="mt-2 font-sans font-medium text-xs text-lavender uppercase tracking-wider">{m.label}</div>
             </div>
             <img src={m.svg} alt="" loading="lazy" class="w-full h-24 object-contain object-left opacity-90" />
           </div>

@@ -39,7 +39,7 @@ const personSchema = {
       <div class="mb-8">
         <a
           href="/team"
-          class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-purple hover:text-deep-purple transition-colors"
+          class="inline-flex items-center gap-2 font-sans font-medium text-xs uppercase tracking-widest text-purple hover:text-deep-purple transition-colors"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <line x1="19" y1="12" x2="5" y2="12"></line>
@@ -64,7 +64,7 @@ const personSchema = {
           <div class="lg:col-span-8 space-y-6">
             <div class="border-b border-neutral-200 pb-6">
               <h1 class="font-display text-4xl sm:text-5xl font-bold text-deep-purple">{member.name}</h1>
-              <p class="mt-2 font-mono text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
+              <p class="mt-2 font-sans font-medium text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
             </div>
 
             <div class="rich-text" set:html={member.bioHtml} />
@@ -74,7 +74,7 @@ const personSchema = {
         <div class="max-w-4xl space-y-6">
           <div class="border-b border-neutral-200 pb-6">
             <h1 class="font-display text-4xl sm:text-5xl font-bold text-deep-purple">{member.name}</h1>
-            <p class="mt-2 font-mono text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
+            <p class="mt-2 font-sans font-medium text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
           </div>
 
           <div class="rich-text" set:html={member.bioHtml} />

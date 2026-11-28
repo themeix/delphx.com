@@ -107,7 +107,7 @@ const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replac
               href={item.href}
               class="group flex items-baseline gap-4 py-3.5 border-b border-white/10 hover:border-lavender/60 transition-colors"
             >
-              <span class="font-mono text-sm text-lavender/80 group-hover:text-lavender transition-colors">
+              <span class="font-sans font-medium text-sm text-lavender/80 group-hover:text-lavender transition-colors">
                 {item.num}.
               </span>
               <span
@@ -123,7 +123,7 @@ const currentPath = Astro.url.pathname === '/' ? '/' : Astro.url.pathname.replac
         })}
       </div>
 
-      <div class="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-sm text-white/70 font-mono">
+      <div class="pt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-sm text-white/70 font-sans font-medium">
         <div>Miami • New York • Toronto</div>
         <div class="flex items-center gap-6">
           <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy</a>
