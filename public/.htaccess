@@ -1,5 +1,6 @@
 # Serve index.html for directory requests
 DirectoryIndex index.html
+DirectorySlash Off
 
 # Use Astro's generated 404 page
 ErrorDocument 404 /404.html
@@ -16,10 +17,13 @@ RewriteRule ^agm-materials(?:\.html)?/?$ /agm [R=301,L]
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,NE,L]
 
-# Serve extensionless URLs from .html files
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L]
+# Redirect trailing slashes (except root /) to clean extensionless URLs
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteRule ^ /%1 [R=301,L]
+
+# Serve extensionless URLs from .html files (works even when a folder of the same name exists, e.g. /press-releases and /team)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
 
 # Long-term caching for hashed assets and static media (LiteSpeed / Apache)
 <IfModule mod_expires.c>
