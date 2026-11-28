@@ -9,6 +9,9 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
+# 301 SEO Redirect from /agm-materials to /agm
+RewriteRule ^agm-materials(?:\.html)?/?$ /agm [R=301,L]
+
 # Redirect .html requests to clean extensionless URLs
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,NE,L]

@@ -49,24 +49,29 @@ const personSchema = {
         </a>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-4">
-          <div class="rounded-2xl overflow-hidden bg-deep-purple aspect-[4/5] flex items-center justify-center border border-neutral-200">
-            {member.image ? (
+      {member.image ? (
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-4">
+            <div class="rounded-2xl overflow-hidden bg-deep-purple aspect-[4/5] border border-neutral-200">
               <img
                 src={member.image}
                 alt={member.name}
                 class="w-full h-full object-cover object-top"
               />
-            ) : (
-              <div class="w-32 h-32 rounded-full bg-white/10 border border-lavender/30 flex items-center justify-center font-display text-4xl font-bold text-lavender">
-                {member.initials}
-              </div>
-            )}
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 space-y-6">
+            <div class="border-b border-neutral-200 pb-6">
+              <h1 class="font-display text-4xl sm:text-5xl font-bold text-deep-purple">{member.name}</h1>
+              <p class="mt-2 font-mono text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
+            </div>
+
+            <div class="rich-text" set:html={member.bioHtml} />
           </div>
         </div>
-
-        <div class="lg:col-span-8 space-y-6">
+      ) : (
+        <div class="max-w-4xl space-y-6">
           <div class="border-b border-neutral-200 pb-6">
             <h1 class="font-display text-4xl sm:text-5xl font-bold text-deep-purple">{member.name}</h1>
             <p class="mt-2 font-mono text-sm sm:text-base text-purple uppercase tracking-wider">{member.role}</p>
@@ -74,7 +79,7 @@ const personSchema = {
 
           <div class="rich-text" set:html={member.bioHtml} />
         </div>
-      </div>
+      )}
     </div>
   </section>
 

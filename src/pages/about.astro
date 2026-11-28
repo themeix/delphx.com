@@ -54,8 +54,8 @@ const metrics = [
   canonicalPath="/about"
 >
   <!-- Page Header -->
-  <section class="bg-off-white pt-16 sm:pt-24 pb-16 border-b border-neutral-200">
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+  <section class="bg-off-white pt-12 sm:pt-16 pb-12 sm:pb-16 border-b border-neutral-200">
+    <div data-page-header class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="flex items-center gap-3 mb-6">
         <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
         <span class="font-mono text-xs uppercase tracking-widest text-purple">About Us</span>
@@ -69,32 +69,37 @@ const metrics = [
     </div>
   </section>
 
-  <!-- Hero Image Band -->
-  <section class="relative h-72 sm:h-96 md:h-[440px] overflow-hidden bg-deep-purple">
-    <img
-      src="/images/68121fa3c12b45a8493f885f_martin-martz-SIhcZYEwMB0-unsplash-1-.jpg"
-      alt="DelphX Capital Markets architecture"
-      class="w-full h-full object-cover opacity-80"
-    />
-  </section>
+  <!-- Three Dimensions (Parallax Architectural Image + White Typography) -->
+  <section class="relative py-20 md:py-28 bg-deep-purple text-white overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <img
+        data-parallax-img
+        src="/images/68121fa3c12b45a8493f885f_martin-martz-SIhcZYEwMB0-unsplash-1-.jpg"
+        alt="DelphX Capital Markets architecture"
+        class="w-full h-full object-cover opacity-45 will-change-transform"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-deep-purple/80 via-deep-purple/65 to-deep-purple/90"></div>
+    </div>
 
-  <!-- Three Dimensions -->
-  <section class="bg-off-white py-20 md:py-28 border-b border-neutral-200">
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+    <div class="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="max-w-3xl mb-14 reveal">
-        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-deep-purple leading-tight">
+        <span class="font-mono text-xs uppercase tracking-widest text-lavender block mb-3">Our Capabilities</span>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight">
           At DelphX Capital Markets, we deliver innovative solutions across three dimensions
         </h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {dimensions.map((item) => (
-          <div class="rounded-2xl border border-neutral-200 bg-white p-8 space-y-5 hover:border-purple transition-colors reveal">
-            <div class="w-12 h-12 rounded-xl bg-pearl flex items-center justify-center p-2.5">
-              <img src={item.icon} alt="" width="32" height="32" loading="lazy" class="w-full h-full object-contain" />
+      <div data-gsap-stagger class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {dimensions.map((item, idx) => (
+          <div class="group rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-md p-8 space-y-5 hover:border-lavender/50 hover:bg-white/[0.12] transition-colors duration-300">
+            <div class="flex items-center justify-between">
+              <div class="w-12 h-12 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center p-2.5">
+                <img src={item.icon} alt="" width="32" height="32" loading="lazy" class="w-full h-full object-contain invert brightness-200" />
+              </div>
+              <span class="font-mono text-xs text-lavender/80">0{idx + 1}</span>
             </div>
-            <h3 class="font-display text-xl font-semibold text-deep-purple">{item.title}</h3>
-            <p class="text-neutral-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
+            <h3 class="font-display text-xl font-semibold text-white">{item.title}</h3>
+            <p class="text-white/80 text-sm sm:text-base leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>
@@ -112,9 +117,9 @@ const metrics = [
           </h2>
         </div>
 
-        <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div data-gsap-stagger class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {storyKeys.map((text, idx) => (
-            <div class="rounded-xl bg-white border border-neutral-200 p-6 space-y-3 reveal">
+            <div class="rounded-2xl bg-white border border-neutral-200 p-7 space-y-3 hover:border-purple/50 transition-colors duration-300">
               <div class="font-mono text-xs text-purple">0{idx + 1}</div>
               <p class="text-neutral-700 text-sm sm:text-base leading-relaxed">{text}</p>
             </div>
@@ -127,9 +132,9 @@ const metrics = [
   <!-- Metrics Section -->
   <section class="bg-deep-purple text-white py-20 md:py-28">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div data-gsap-stagger class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {metrics.map((m) => (
-          <div class="rounded-2xl border border-white/15 bg-white/5 p-8 flex flex-col justify-between gap-8 reveal">
+          <div class="rounded-2xl border border-white/15 bg-white/[0.05] p-8 flex flex-col justify-between gap-8 hover:border-lavender/45 transition-colors duration-300">
             <div>
               <div class="font-display text-3xl sm:text-4xl font-bold text-white">{m.value}</div>
               <div class="mt-2 font-mono text-xs text-lavender uppercase tracking-wider">{m.label}</div>

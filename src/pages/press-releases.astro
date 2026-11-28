@@ -13,8 +13,8 @@ const years = Array.from(
   description="Official press releases, corporate announcements, private placement updates, and Credit Rating Securities milestones from DelphX Capital Markets Inc."
   canonicalPath="/press-releases"
 >
-  <section class="bg-off-white pt-16 sm:pt-24 pb-12 border-b border-neutral-200">
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
+  <section class="bg-off-white pt-12 sm:pt-16 pb-10 sm:pb-12 border-b border-neutral-200">
+    <div data-page-header class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
       <div class="flex items-center gap-3 mb-6">
         <img src="/images/68121fa3c12b45a8493f881a_Quad.svg" alt="" width="24" height="24" class="w-6 h-6" />
         <span class="font-mono text-xs uppercase tracking-widest text-purple">Newsroom</span>
@@ -87,7 +87,7 @@ const years = Array.from(
 </BaseLayout>
 
 <script is:inline>
-  (function () {
+  document.addEventListener('astro:page-load', function () {
     var searchInput = document.getElementById('pr-search');
     var yearSelect = document.getElementById('pr-year');
     var countEl = document.getElementById('pr-count');
@@ -115,5 +115,5 @@ const years = Array.from(
 
     searchInput.addEventListener('input', filter);
     yearSelect.addEventListener('change', filter);
-  })();
+  });
 </script>

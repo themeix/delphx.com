@@ -8,45 +8,52 @@ const links = [
 ];
 ---
 
-<footer class="bg-deep-purple text-white py-10 md:py-12">
-  <div class="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-      <!-- Left: Navigation links -->
-      <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/80" aria-label="Footer Navigation">
-        {links.map((link) => (
-          <a href={link.href} class="hover:text-lavender transition-colors py-1">
-            {link.label}
-          </a>
-        ))}
-      </nav>
-
-      <!-- Center: White Logo + Locations -->
-      <div class="flex flex-col items-start md:items-center gap-2">
-        <a href="/" aria-label="DelphX Home">
-          <img
-            src="/images/6815dcd09dfd03f712ed5b07_logo-white.svg"
-            alt="DelphX Capital Markets"
-            width="130"
-            height="32"
-            loading="lazy"
-            class="h-7 w-auto"
-          />
-        </a>
-        <div class="font-mono text-xs text-white/70">Miami, NY, Toronto</div>
-      </div>
-
-      <!-- Right: LinkedIn + Copyright -->
-      <div class="flex flex-col items-start md:items-end gap-1.5 text-sm text-white/75">
+<footer class="md:sticky md:bottom-0 z-0 bg-deep-purple text-white pt-10 pb-6 md:pt-14 md:pb-8">
+  <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 flex flex-col justify-between gap-12 md:gap-16">
+    <!-- Top: Centered Navigation Links -->
+    <nav
+      class="flex flex-wrap items-center justify-center gap-x-7 sm:gap-x-10 gap-y-3 text-sm sm:text-[15px] text-white/90"
+      aria-label="Footer Navigation"
+    >
+      {links.map((link) => (
         <a
-          href="https://www.linkedin.com/company/59469860/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="hover:text-lavender transition-colors"
+          href={link.href}
+          class="group relative inline-flex items-center gap-2 py-1 hover:text-lavender transition-colors"
         >
-          Linkedin
+          <span>{link.label}</span>
+          <span class="w-1.5 h-1.5 rotate-45 bg-purple opacity-0 group-hover:opacity-100 transition-opacity"></span>
         </a>
-        <div class="text-xs text-white/60">©2026 DelphX Capital Markets Inc</div>
+      ))}
+    </nav>
+
+    <!-- Center: Large White DCM Logo + Locations -->
+    <div class="flex flex-col items-center justify-center text-center gap-5 py-4 md:py-6">
+      <a href="/" aria-label="DelphX Home" class="block">
+        <img
+          src="/images/6815dcd09dfd03f712ed5b07_logo-white.svg"
+          alt="DCM - DelphX Capital Markets"
+          width="400"
+          height="168"
+          loading="lazy"
+          class="w-[230px] sm:w-[320px] md:w-[380px] h-auto"
+        />
+      </a>
+      <div class="font-mono text-xs sm:text-[13px] tracking-[0.22em] uppercase text-white/80">
+        MIAMI, NY, TORONTO
       </div>
+    </div>
+
+    <!-- Bottom: LinkedIn (Left) & Copyright (Right) -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/10 text-xs sm:text-sm text-white/75">
+      <a
+        href="https://www.linkedin.com/company/59469860/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-lavender transition-colors"
+      >
+        Linkedin
+      </a>
+      <div class="text-white/70">©2026 DelphX Capital Markets Inc</div>
     </div>
   </div>
 </footer>

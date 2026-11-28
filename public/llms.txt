@@ -14,8 +14,7 @@
 
 ## Investor & Governance Resources
 
-- [2026 AGM](https://www.delphx.com/agm): Meeting materials for the December 17, 2026 Annual General and Special Meeting.
-- [AGM Materials](https://www.delphx.com/agm-materials): 2024 AGM Form of Proxy and Information Circular.
+- [AGM Materials](https://www.delphx.com/agm): 2026 and 2024 Annual General and Special Meeting materials, Circulars, and Forms of Proxy.
 - [Company Financials](https://www.delphx.com/company-financials): Quarterly and annual Financial Statements and MD&A (2018–2025).
 - [Acronym and Term Playbook](https://www.delphx.com/delphx-acronym-and-term-playbook): Definitions for CPO, CRN, CDS, CUSIP, ISDA, Recovery Value, 144A, and SEC.
 - [Blog](https://www.delphx.com/blog): Media & Insights.

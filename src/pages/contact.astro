@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const FORMSPARK_ACTION_URL = 'https://submit-form.com/pVEiXN07C';
+
 const offices = [
   {
     title: 'Head Office – Canada',
@@ -48,7 +50,12 @@ const contactSchema = {
             </p>
           </div>
 
-          <form id="contact-form" class="space-y-5 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-10 shadow-sm">
+          <form
+            id="contact-form"
+            method="POST"
+            action={FORMSPARK_ACTION_URL}
+            class="space-y-5 bg-white border border-neutral-200 rounded-2xl p-6 sm:p-10 shadow-sm"
+          >
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label for="First-Name" class="block font-mono text-xs uppercase tracking-wider text-neutral-600 mb-2">
@@ -56,7 +63,7 @@ const contactSchema = {
                 </label>
                 <input
                   id="First-Name"
-                  name="First-Name"
+                  name="firstName"
                   type="text"
                   maxlength="256"
                   required
@@ -71,7 +78,7 @@ const contactSchema = {
                 </label>
                 <input
                   id="Last-Name"
-                  name="Last-Name"
+                  name="lastName"
                   type="text"
                   maxlength="256"
                   required
@@ -88,7 +95,7 @@ const contactSchema = {
                 </label>
                 <input
                   id="Phone"
-                  name="Phone"
+                  name="phone"
                   type="tel"
                   maxlength="256"
                   placeholder="Your Phone"
@@ -102,7 +109,7 @@ const contactSchema = {
                 </label>
                 <input
                   id="Email"
-                  name="Email"
+                  name="email"
                   type="email"
                   maxlength="256"
                   required
@@ -118,7 +125,7 @@ const contactSchema = {
               </label>
               <textarea
                 id="Message"
-                name="Your-Message"
+                name="message"
                 rows="5"
                 maxlength="5000"
                 required
@@ -196,13 +203,14 @@ const contactSchema = {
 </BaseLayout>
 
 <script is:inline>
-  (function () {
+  document.addEventListener('astro:page-load', function () {
     var form = document.getElementById('contact-form');
     var submitBtn = document.getElementById('submit-btn');
     var btnText = document.getElementById('btn-text');
     var successBox = document.getElementById('form-success');
     var errorBox = document.getElementById('form-error');
-    if (!form || !submitBtn || !btnText || !successBox || !errorBox) return;
+    if (!form || !submitBtn || !btnText || !successBox || !errorBox || form.dataset.bound === '1') return;
+    form.dataset.bound = '1';
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -219,29 +227,30 @@ const contactSchema = {
       btnText.textContent = 'Please wait...';
 
       try {
-        var res = await fetch('/contact.php', {
+        var res = await fetch(form.getAttribute('action') || 'https://submit-form.com/pVEiXN07C', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
           body: JSON.stringify({
             firstName: firstName.trim(),
             lastName: lastName.trim(),
             name: (firstName + ' ' + lastName).trim(),
             phone: phone.trim(),
             email: email.trim(),
-            subject: 'DelphX Website Inquiry',
             message: message.trim(),
           }),
         });
 
-        var data = await res.json().catch(function () {
-          return {};
-        });
-
-        if (res.ok && data.success !== false) {
+        if (res.ok) {
           successBox.classList.remove('hidden');
           form.reset();
           successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
+          var data = await res.json().catch(function () {
+            return {};
+          });
           errorBox.textContent = data.message || 'Oops! Something went wrong while submitting the form.';
           errorBox.classList.remove('hidden');
         }
@@ -252,5 +261,5 @@ const contactSchema = {
         btnText.textContent = 'Submit';
       }
     });
-  })();
+  });
 </script>

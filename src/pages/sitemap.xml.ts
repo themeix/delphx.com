@@ -13,7 +13,6 @@ const staticRoutes = [
   '/privacy-policy',
   '/investors',
   '/delphx-acronym-and-term-playbook',
-  '/agm-materials',
   '/company-financials',
   '/resources',
   '/agm',
